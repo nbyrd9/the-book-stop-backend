@@ -12,10 +12,10 @@ class BooksController < ApplicationController
         end
     end
 
-    def index
-    end
+
 
     def destroy
+        book_id = params[:id]
     end
 
     # private
