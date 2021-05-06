@@ -1,4 +1,9 @@
 class BooksController < ApplicationController
+    def index
+        books = Book.all
+        render json: books, except: [:created_at, :updated_at]
+    end
+    
     def new
         book = Book.new
     end
@@ -15,7 +20,9 @@ class BooksController < ApplicationController
 
 
     def destroy
-        book_id = params[:id]
+        # book_id = params[:id]
+        book = Book.find_by(params[:id])
+        book.destroy
     end
 
     # private
