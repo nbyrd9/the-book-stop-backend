@@ -3,6 +3,11 @@ class BooksController < ApplicationController
         books = Book.all
         render json: books, except: [:created_at, :updated_at]
     end
+
+    def show
+       book = Book.find_by(id: params[:id])
+       render json: book
+    end
     
     def new
         book = Book.new
@@ -17,6 +22,15 @@ class BooksController < ApplicationController
         end
     end
 
+    def update 
+        book.update(book_params)
+        if book.save
+          render json: book, status: 200
+        else
+          render json: { errors: book.errors.full_messages }
+        end
+    end 
+
 
 
     def destroy
@@ -25,9 +39,10 @@ class BooksController < ApplicationController
         book.destroy
     end
 
-    # private
+    private
 
-    #     def book_params
-    #     end
+        def book_params
+            params.require(:name, :genre, :published, :author_id)
+        end
 
 end
