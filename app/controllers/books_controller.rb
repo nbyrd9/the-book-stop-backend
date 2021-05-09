@@ -22,14 +22,7 @@ class BooksController < ApplicationController
         end
     end
 
-    def update 
-        book.update(book_params)
-        if book.save
-          render json: book, status: 200
-        else
-          render json: { errors: book.errors.full_messages }
-        end
-    end 
+   
 
 
 

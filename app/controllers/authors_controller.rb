@@ -15,18 +15,14 @@ def show
 end
 
 def create
-    author = Author.create(author_params)
-    render json: author, status: 200
-end
-
-def update
-    author.update(author_params)
+    author = Author.new(author_params)
     if author.save
         render json: author, status: 200
     else
-        render json: { errors: author.errors.full_messages }
+        render json: { errors: list.errors.full_messages }
     end
 end
+
 
 def destroy
     author = Author.find_by(id: params[:id])
