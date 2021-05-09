@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
 
 def index
     authors = Author.all
-    render json: authors, except: [:created_at, :updated_at]
+    render json: authors, except: [:created_at, :updated_at], include: [:books]
 end
 
 def show
@@ -38,7 +38,7 @@ end
 
 private
     def author_params
-        params.require(:name)
+        params.require(:author).permit(:name)
     end
 
 
