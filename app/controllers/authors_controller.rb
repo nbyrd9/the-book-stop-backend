@@ -12,7 +12,7 @@ def create
     if author.save
         render json: author, except: [:created_at, :updated_at], include: [:books]
     else
-        render json: { errors: list.errors.full_messages }
+        render json: { errors: author.errors.full_messages }
     end
 end
 
