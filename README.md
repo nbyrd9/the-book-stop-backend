@@ -2,7 +2,7 @@
 
 # Description
 
-Welcome to The Book Spot! This application was created for the book lovers of the world. Keep track and document your favorite authors and books with this virtual reading list. The Book Spot was created using a Rails API Backend and a Javascript Frontend. To access the frontend code, please click [here](https://github.com/nbyrd9/the-book-stop-frontend) Enjoy!
+Welcome to The Book Spot! This application was created for the book lovers of the world. Keep track and document your favorite authors and books with this virtual reading list. The Book Spot was created using a Rails API Backend and a Javascript Frontend. To access the frontend code, please click [here](https://github.com/nbyrd9/the-book-stop-frontend). Enjoy!
 
 # Install Instructions
 
