@@ -1,18 +1,18 @@
 class BooksController < ApplicationController
-    def index
+    def index  
         books = Book.all
         render json: books, except: [:created_at, :updated_at]
     end
 
-    def show
+    # def show
   
-       book = Book.find_by(id: params[:id])
-       render json: book
-    end
-    
+    #    book = Book.find_by(id: params[:id])
+    #    render json: book
+    # end
 
 
     def create
+        # binding.pry
         book = Book.new(book_params)
         if book.save
             render json: book, except: [:created_at, :updated_at]
@@ -33,10 +33,9 @@ class BooksController < ApplicationController
     end
 
     private
-    
 
         def book_params
-            params.fetch(:book, {}).permit(:name, :author_id)
+            params.require(:book).permit(:name, :author_id)
         end
 
 end
